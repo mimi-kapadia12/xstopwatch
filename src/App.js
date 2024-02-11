@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      <h3>Stopwatch</h3>
+      <h4>Stopwatch</h4>
       <p>Time : {formatTime(elaspedTime)}</p>
       <button onClick={toggleTime} className="btn btn-sm btn-primary m-1">
         {isRunning ? "Stop" : "Start"}
