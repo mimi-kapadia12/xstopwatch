@@ -4,7 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   const [isRunning, setIsRunning] = useState(false);
-  const [elaspedTime, setElaspedTime] = useState(0);
+  const [elapsedTime, setElapsedTime] = useState(0);
+
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -17,7 +18,7 @@ function App() {
 
   const reset = () => {
     setIsRunning(false);
-    setElaspedTime(0);
+    setElapsedTime(0);
   };
 
   useEffect(() => {
@@ -25,7 +26,7 @@ function App() {
 
     if (isRunning) {
       IntervalId = setInterval(() => {
-        setElaspedTime((prev) => prev + 1);
+        setElapsedTime((prev) => prev + 1);
       }, 1000);
     } else {
       clearInterval(IntervalId);
@@ -36,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <h4>Stopwatch</h4>
-      <p>Time : {formatTime(elaspedTime)}</p>
+      <p>Time: {isRunning ? formatTime(elapsedTime) : "0:00"}</p>
       <button onClick={toggleTime} className="btn btn-sm btn-primary m-1">
         {isRunning ? "Stop" : "Start"}
       </button>
