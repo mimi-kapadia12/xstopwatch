@@ -22,6 +22,7 @@ function App() {
   };
 
   useEffect(() => {
+    const ac = new AbortController();
     let IntervalId;
 
     if (isRunning) {
@@ -31,7 +32,10 @@ function App() {
     } else {
       clearInterval(IntervalId);
     }
-    return () => clearInterval(IntervalId);
+    return () => {
+      clearInterval(IntervalId);
+      ac.abort();
+    };
   }, [isRunning]);
 
   return (
